@@ -1,8 +1,8 @@
-const express = require('express');
-const path = require('path');
-const exphbs = require('express-handlebars');
-const nodemailer = require('nodemailer');
-const bodyParser = require('body-parser');
+var express = require('express');
+var path = require('path');
+var exphbs = require('express-handlebars');
+var nodemailer = require('nodemailer');
+var bodyParser = require('body-parser');
 
 const app = express();
 
@@ -25,12 +25,12 @@ app.post('/send',(req,res)=>{
 	const output = '<h3>Contact details</h3><ul><li>Name : ${req.body.name}</li><li>Email : ${req.body.email}</li><li>subject : ${req.body.subject}</li><li>msg : ${req.body.message}</li></ul>'
 
 	let transporter = nodemailer.createTransport({
-        host: 'smtp.gmail.com',
+        host: 'smtp.google.com',
         port: 587,
         secure: false, // true for 465, false for other ports
         auth: {
             user: 'piyushravat7@gmail.com', // generated ethereal user
-            pass: 'phRavat_13' // generated ethereal password
+            pass: '*****' // generated ethereal password
         },
         tls:{
 	 		rejectUnauthorized:false
