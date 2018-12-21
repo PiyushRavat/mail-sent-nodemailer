@@ -1,8 +1,8 @@
 var express = require('express');
 var path = require('path');
 var exphbs = require('express-handlebars');
-var nodemailer = require('nodemailer');
-var bodyParser = require('body-parser');
+const nodemailer = require('nodemailer'); // nodemailer for send mail
+const bodyParser = require('body-parser');
 
 const app = express();
 
@@ -11,6 +11,7 @@ app.engine('handlebars',exphbs());
 app.set('view engine','handlebars');
 
 //body parser
+app.use(bodyparser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
