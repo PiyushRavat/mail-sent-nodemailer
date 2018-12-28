@@ -1,8 +1,8 @@
 var express = require('express');
 var path = require('path');
 var exphbs = require('express-handlebars');
-const nodemailer = require('nodemailer'); // nodemailer for send mail
-const bodyParser = require('body-parser');
+var nodemailer = require('nodemailer'); 
+var bodyParser = require('body-parser');
 
 const app = express();
 
@@ -13,8 +13,8 @@ app.set('view engine','handlebars');
 //body parser
 app.use(bodyparser.json());
 app.use(bodyParser.urlencoded({extended: false}));
-app.use(bodyParser.json());
 
+//for static
 app.use('/public',express.static(path.join(__dirname, 'public')));
 
 app.get('/',(req,res)=>{
@@ -30,8 +30,8 @@ app.post('/send',(req,res)=>{
         port: 587,
         secure: false, // true for 465, false for other ports
         auth: {
-            user: 'piyushravat7@gmail.com', // generated ethereal user
-            pass: '*****' // generated ethereal password
+            user: 'piyushravat7@gmail.com', // ethereal user
+            pass: '12345' //  password
         },
         tls:{
 	 		rejectUnauthorized:false
@@ -40,9 +40,9 @@ app.post('/send',(req,res)=>{
 
     // setup email data with unicode symbols
     let mailOptions = {
-        from: '"Fred Foo 👻" <piyushravat7@gmail.com>', // sender address
+        from: '"hello Hitesh" <piyushravat7@gmail.com>', // sender address
         to: 'piyushravat07@gmail.com', // list of receivers
-        subject: 'Hello ✔', // Subject line
+        subject: 'Hello ✔', 
         text: 'Hello world?', // plain text body
         html: output//'<b>Hello world?</b>' // html body
     };
